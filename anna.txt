@@ -4,5 +4,11 @@ node{
         git credentialsId: 'GIT-Credentials', url: 'https://github.com/Raghumast/maven-web-01yum.git'
     }
     
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.8.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+}
+
 }
     
